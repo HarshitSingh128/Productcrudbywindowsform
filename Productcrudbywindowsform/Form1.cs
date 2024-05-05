@@ -31,9 +31,9 @@ namespace Productcrudbywindowsform
             {
                 //step 1:write query
                 string qry = "insert into Product values(@pname ,@pprice)";
-                //create object of command and assign the query
+               
                 cmd = new SqlCommand(qry, con);
-                //assign value to parameter
+               
 
                 cmd.Parameters.AddWithValue("@pname", txtname.Text);
                 cmd.Parameters.AddWithValue("@pprice", txtprice.Text);
@@ -63,9 +63,9 @@ namespace Productcrudbywindowsform
             {
                 //step 1:write query
                 string qry = "update  Product set pname=@pname,pprice=@pprice where pid=@pid";
-                //create object of command and assign the query
+               
                 cmd = new SqlCommand(qry, con);
-                //assign value to parameter
+               
 
                 cmd.Parameters.AddWithValue("@pname", txtname.Text);
                 cmd.Parameters.AddWithValue("@pprice", txtprice.Text);
@@ -138,7 +138,7 @@ namespace Productcrudbywindowsform
 
                 // step1 - write query
                 string qry = "delete from Product where pid=@pid";
-                // create object of command and assign the query
+               
                 cmd = new SqlCommand(qry, con);
                 // assign values to parameters
                 cmd.Parameters.AddWithValue("@pid", txtid.Text);
@@ -169,8 +169,7 @@ namespace Productcrudbywindowsform
                 cmd = new SqlCommand(qry, con);
                 con.Open();
                 dr = cmd.ExecuteReader();
-                //dr hold date in the from of recods(object)
-                //grid needs data in table format
+                
                 DataTable table = new DataTable();
                 table.Load(dr);
                 dataGridView1.DataSource = table;
